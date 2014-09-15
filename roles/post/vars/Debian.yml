@@ -1,9 +1,0 @@
----
-packages:
-  - python-dev
-  - python-virtualenv
-
-zuul_user: 'zuul'
-zuul_group: 'zuul'
-zuul_venv: '/var/zuul/virtualenv'
-zuul_app: '/var/zuul/application'

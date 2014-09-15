@@ -20,4 +20,4 @@
   file: path={{ zuul_app }} owner={{ zuul_user }} group={{ zuul_group }} mode=0755 state=directory
 
 - name: clone zuul locally.
-  pip: name='git+https://github.com/openstack-infra/zuul.git@{{ zuul_rev }} virtualenv={{ zuul_venv }}
+  pip: name='git+https://github.com/openstack-infra/zuul.git@{{ zuul_rev }}' virtualenv={{ zuul_venv }}

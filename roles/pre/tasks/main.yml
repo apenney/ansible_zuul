@@ -1,0 +1,20 @@
+---
+- name: Add the OS specific variables
+  include_vars: "{{ ansible_os_family }}.yml"
+
+- include: RedHat.yml
+  when: ansible_os_family  == "RedHat"
+
+# Ubuntu specific package installations
+- include: Debian.yml
+  when: ansible_os_family  == "Debian"
+
+- name: make group for zuul
+  group: name=zuul state=present
+
+- name: make user for zuul
+  user: name=zuul shell=/bin/false group=zuul state=present
+
+- name: make zuul directories
+  file: path={{ zuul_venv }} owner={{ zuul_user }} group={{ zuul_group }} mode=0755 state=directory
+  file: path={{ zuul_app }} owner={{ zuul_user }} group={{ zuul_group }} mode=0755 state=directory

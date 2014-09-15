@@ -18,3 +18,9 @@
 - name: make zuul directories
   file: path={{ zuul_venv }} owner={{ zuul_user }} group={{ zuul_group }} mode=0755 state=directory
   file: path={{ zuul_app }} owner={{ zuul_user }} group={{ zuul_group }} mode=0755 state=directory
+
+- name: clone zuul locally.
+  git: repo=https://github.com/openstack-infra/zuul.git dest={{ zuul_app }} version=7c185b75a5c2044ecd20fdb023d44248b9473eca
+
+- name: install pip requirements.
+  pip: requirements={{ zuul_app }}/requirements.txt virtualenv={{ zuul_venv }}

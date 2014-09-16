@@ -1,2 +1,4 @@
+{% if statsd_host is defined %}
 export STATSD_HOST= {{ statsd_host }}
 export STATSD_PORT=8125
+{% endif %}

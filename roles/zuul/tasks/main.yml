@@ -27,7 +27,7 @@
   pip: name='git+https://github.com/openstack-infra/zuul.git@{{ zuul_rev }}#egg=zuul' virtualenv={{ zuul_venv }}
 
 - name: setup defaults
-  template: src=/templates/default.j2 dest=/etc/default/zuul owner=root group=root mode=0644
+  template: src=../templates/default.j2 dest=/etc/default/zuul owner=root group=root mode=0644
   when: ansible_os_family  == "Debian"
 
 - name: make a jquery link

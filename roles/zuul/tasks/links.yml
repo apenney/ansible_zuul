@@ -1,4 +1,4 @@
 ---
 - name: Create links
-  file: src={{ links.src }} dest={{ links.dest }} state=link
+  file: src={{ links.source }} dest={{ links.dest }} state=link
   with_items: links

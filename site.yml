@@ -6,5 +6,5 @@
     - jquery
     - zuul
   vars:
-    bootstrap_link: '/var/lib/zuul/www/bootstrap'
+    jquery_visibility_yui_install_location: '/var/lib/zuul/www/jquery-visibility.min.js'
     checkouts: '/var/checkouts'

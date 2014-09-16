@@ -1,7 +1,4 @@
 ---
-- fail: msg="Bailing out. this role requires 'jquery_visibility_link'"
-  when: jquery_visibility_link is not defined
-
 - fail: msg="Bailing out. this role requires 'jquery_visibility_yui_install_location'"
   when: jquery_visibility_yui_install_location is not defined
 

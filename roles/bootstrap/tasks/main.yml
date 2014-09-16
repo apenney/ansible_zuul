@@ -1,7 +1,4 @@
 ---
-- fail: msg="Bailing out. this role requires 'bootstrap_link'"
-  when: bootstrap_link is not defined
-
 - name: Add the OS specific variables
   include_vars: "{{ ansible_os_family }}.yml"
 

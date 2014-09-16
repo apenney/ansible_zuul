@@ -15,11 +15,11 @@ directories:
   - { name: '/var/lib/zuul/ssh',          mode: '0500' }
 
 links:
-  - { source: '{{ zuul_web }}/bootstrap', dest: '/opt/twitter-bootstrap/dist' }
-  - { source: '{{ zuul_web }}/jquery.min.js', dest: '/usr/share/javascript/jquery/jquery.min.js' }
-  - { source: '{{ zuul_web }}/jquery.graphite.js', dest: '/opt/graphitejs/jquery.graphite.js' }
-  - { source: '{{ zuul_web }}/index.html', dest: '/opt/zuul/etc/status/public_html/index.html' }
-  - { source: '{{ zuul_web }}/styles', dest: '/opt/zuul/etc/status/public_html/styles' }
-  - { source: '{{ zuul_web }}/zuul.app.js', dest: '/opt/zuul/etc/status/public_html/zuul.app.js' }
-  - { source: '{{ zuul_web }}/jquery.zuul.js', dest: '/opt/zuul/etc/status/public_html/zuul.app.js' }
-  - { source: '{{ zuul_web }}/images', dest: '/opt/zuul/etc/status/public_html/image' }
+  - { source: '{{ zuul_web }}/bootstrap',          dest: '{{ checkouts }}/twitter-bootstrap/dist' }
+  - { source: '{{ zuul_web }}/jquery.graphite.js', dest: '{{ checkouts }}/graphitejs/jquery.graphite.js' }
+  - { source: '{{ zuul_web }}/index.html',         dest: '{{ checkouts }}/zuul/etc/status/public_html/index.html' }
+  - { source: '{{ zuul_web }}/styles',             dest: '{{ checkouts }}/zuul/etc/status/public_html/styles' }
+  - { source: '{{ zuul_web }}/zuul.app.js',        dest: '{{ checkouts }}/zuul/etc/status/public_html/zuul.app.js' }
+  - { source: '{{ zuul_web }}/jquery.zuul.js',     dest: '{{ checkouts }}/zuul/etc/status/public_html/zuul.app.js' }
+  - { source: '{{ zuul_web }}/images',             dest: '{{ checkouts }}/zuul/etc/status/public_html/image' }
+  - { source: '{{ zuul_web }}/jquery.min.js',      dest: '/usr/share/javascript/jquery/jquery.min.js' }

@@ -2,7 +2,9 @@
 - hosts: local
   connection: local
   roles:
-    - zuul
     - bootstrap
+    - jquery
+    - zuul
   vars:
     bootstrap_link: '/var/lib/zuul/www/bootstrap'
+    checkouts: '/var/checkouts'

@@ -1,6 +1,3 @@
 ---
-- name: Add the OS specific variables
-  include_vars: "{{ ansible_os_family }}.yml"
-
 - name: Clone bootstrap locally.
   git: repo={{ bootstrap_source }} dest={{ bootstrap_dest }} version={{ bootstrap_rev }}

@@ -1,0 +1,4 @@
+---
+jquery_visibility_rev: 'master'
+jquery_visibility_source: 'https://github.com/mathiasbynens/jquery-visibility.git'
+jquery_visibility_dest: '/var/jquery-visibility'

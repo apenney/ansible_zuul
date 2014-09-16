@@ -15,9 +15,22 @@
 - name: make user for zuul
   user: name=zuul shell=/bin/false group=zuul state=present
 
-- name: make zuul directories
-  file: path={{ zuul_venv }} owner={{ zuul_user }} group={{ zuul_group }} mode=0755 state=directory
-  file: path={{ zuul_app }} owner={{ zuul_user }} group={{ zuul_group }} mode=0755 state=directory
+#- name: make zuul directories
+#  file: path={{ zuul_venv }} owner={{ zuul_user }} group={{ zuul_group }} mode=0755 state=directory
+#  file: path={{ zuul_app }} owner={{ zuul_user }} group={{ zuul_group }} mode=0755 state=directory
 
-- name: clone zuul locally.
+- name: make more zuul directories
+  file: path={{ item.name }} owner={{ zuul_user }} group={{ zuul_group }} mode={{ item.mode }} state=directory
+  with_items: directories
+
+- name: install zuul locally.
   pip: name='git+https://github.com/openstack-infra/zuul.git@{{ zuul_rev }}#egg=zuul' virtualenv={{ zuul_venv }}
+
+- name: setup defaults
+  template: src=/templates/default.j2 dest=/etc/default/zuul owner=root group=root mode=0644
+  when: ansible_os_family  == "Debian"
+
+- name: make a jquery link
+  file: src='/usr/share/javascript/jquery/jquery.min.js' dest='/var/lib/zuul/www/jquery.min.js' state=link
+
+- include: links.yml

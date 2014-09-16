@@ -1,0 +1,15 @@
+---
+- fail: msg="Bailing out. this role requires 'jquery_visibility_link'"
+  when: jquery_visibility_link is not defined
+
+- fail: msg="Bailing out. this role requires 'jquery_visibility_yui_install_location'"
+  when: jquery_visibility_yui_install_location is not defined
+
+- name: Add the OS specific variables
+  include_vars: "{{ ansible_os_family }}.yml"
+
+- name: Clone jquery visibility locally.
+  git: repo={{ jquery_visibility_source }} dest={{ jquery_visibility_dest }} version={{ jquery_visibility_rev }}
+
+- name: Install jquery visibility
+  command: yui-compressor -o {{ jquery_visibility_yui_install_location }} {{ jquery_visibility_dest }}/jquery-visibility.js

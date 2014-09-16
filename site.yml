@@ -3,3 +3,6 @@
   connection: local
   roles:
     - zuul
+    - bootstrap
+  vars:
+    bootstrap_link: '/var/lib/zuul/www/bootstrap'

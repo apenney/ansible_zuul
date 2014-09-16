@@ -2,5 +2,24 @@
 zuul_user: 'zuul'
 zuul_group: 'zuul'
 zuul_venv: '/var/zuul/virtualenv'
-zuul_app: '/var/zuul/application'
+zuul_web: '/var/lib/zuul/www'
 zuul_rev: '7c185b75a5c2044ecd20fdb023d44248b9473eca'
+directories:
+  - { name: '/var/zuul/virtualenv',       mode: '0755' }
+  - { name: '/var/log/zuul',              mode: '0755' }
+  - { name: '/var/run/zuul',              mode: '0755' }
+  - { name: '/var/run/zuul-merger',       mode: '0755' }
+  - { name: '/var/lib/zuul',              mode: '0755' }
+  - { name: '/var/lib/zuul/git',          mode: '0755' }
+  - { name: '/var/lib/zuul/www',          mode: '0755' }
+  - { name: '/var/lib/zuul/ssh',          mode: '0500' }
+
+links:
+  - { source: '{{ zuul_web }}/bootstrap', dest: '/opt/twitter-bootstrap/dist' }
+  - { source: '{{ zuul_web }}/jquery.min.js', dest: '/usr/share/javascript/jquery/jquery.min.js' }
+  - { source: '{{ zuul_web }}/jquery.graphite.js', dest: '/opt/graphitejs/jquery.graphite.js' }
+  - { source: '{{ zuul_web }}/index.html', dest: '/opt/zuul/etc/status/public_html/index.html' }
+  - { source: '{{ zuul_web }}/styles', dest: '/opt/zuul/etc/status/public_html/styles' }
+  - { source: '{{ zuul_web }}/zuul.app.js', dest: '/opt/zuul/etc/status/public_html/zuul.app.js' }
+  - { source: '{{ zuul_web }}/jquery.zuul.js', dest: '/opt/zuul/etc/status/public_html/zuul.app.js' }
+  - { source: '{{ zuul_web }}/images', dest: '/opt/zuul/etc/status/public_html/image' }

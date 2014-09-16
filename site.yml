@@ -8,3 +8,4 @@
   vars:
     jquery_visibility_yui_install_location: '/var/lib/zuul/www/jquery-visibility.min.js'
     checkouts: '/var/checkouts'
+    jquery_visibility_dest: '{{ checkouts }}/jquery_visibility'

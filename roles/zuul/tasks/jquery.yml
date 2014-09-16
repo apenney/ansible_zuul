@@ -1,0 +1,6 @@
+---
+- fail: msg="Bailing out. this role requires 'jquery_visibility_yui_install_location'"
+  when: jquery_visibility_yui_install_location is not defined
+
+- name: Install jquery visibility
+  command: yui-compressor -o {{ jquery_visibility_yui_install_location }} {{ jquery_visibility_dest }}/jquery-visibility.js

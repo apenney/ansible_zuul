@@ -34,3 +34,4 @@
   file: src='/usr/share/javascript/jquery/jquery.min.js' dest='/var/lib/zuul/www/jquery.min.js' state=link
 
 - include: links.yml
+- include: jquery.yml
